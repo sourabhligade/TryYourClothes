@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import axios from 'axios';
 
 function App() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -8,43 +9,50 @@ function App() {
     setSelectedFile(event.target.files[0]);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (!selectedFile) {
-      alert('Please select a file.');
-      return;
-    }
-    const formData = new FormData();
-    formData.append('file', selectedFile);
+  const handleFileUpload = async () => {
+    if (selectedFile) {
+      const formData = new FormData();
+      formData.append('file', selectedFile);
 
-    // Here, you would typically make a POST request to your backend API
-    // using fetch or Axios to handle the file upload.
-    // Example using fetch:
-    fetch('http://localhost:8000/api/upload/', {
-      method: 'POST',
-      body: formData,
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-        alert('File uploaded successfully!');
-        setSelectedFile(null); // Reset selected file state
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('Error uploading file.');
-      });
+      try {
+        const response = await axios.post('http://localhost:8000/api/upload/', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+        alert(response.data.message);
+        console.log(response.data.file_path); // You can check the file path here
+      } catch (error) {
+        console.error('Error uploading file:', error);
+        alert('Failed to upload file');
+      }
+    } else {
+      alert('No file selected');
+    }
   };
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Virtual Try On Only on TryYourClothes.com</h1>
-        <p>Upload your photo to try on clothes.</p>
-        <form onSubmit={handleSubmit}>
-          <input type="file" onChange={handleFileChange} accept="image/*" />
-          <button type="submit">Upload</button>
-        </form>
+        <h1 className="main-title">
+          Virtual Try On Only on 
+          <br />
+          <span className="highlight-url">TryYourClothes.com</span>
+        </h1>
+        <p className="tagline">
+          Snap a Pic, Choose an Outfit, 
+          <br />
+          <span className="highlight">Get a Virtual Fitting in Seconds!</span>
+        </p>
+        <button className="cta-button">Get Started</button>
+        <p className="discount-banner">
+          Bringing Fitting Rooms to Your Home
+        </p>
+        <div className="upload-section">
+          <input type="file" id="file-upload" onChange={handleFileChange} />
+          <label htmlFor="file-upload" className="upload-button">Choose File</label>
+          <button className="upload-button" onClick={handleFileUpload}>Upload Photo</button>
+        </div>
       </header>
     </div>
   );

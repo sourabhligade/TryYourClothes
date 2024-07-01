@@ -1,42 +1,80 @@
+/* App.css */
 .App {
-  text-align: center; /* Centers text horizontally */
-  height: 100vh; /* Takes full viewport height */
+  text-align: center;
+  background-color: #f8f8fc;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Aligns content to the top */
-  align-items: center; /* Centers content horizontally */
-  margin: 0; /* Removes default margin */
-  background-color: #282c34; /* Sets background color */
-  color: white; /* Sets text color */
-  font-size: calc(10px + 2vmin); /* Responsive font size */
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-  animation: App-logo-spin infinite 20s linear; /* Animation for logo */
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  justify-content: center;
+  align-items: center;
 }
 
 .App-header {
-  background-color: #282c34; /* Background color */
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centers content horizontally */
-  justify-content: center; /* Centers content vertically */
-  font-size: calc(10px + 2vmin); /* Responsive font size */
-  color: white; /* Text color */
+  text-align: center;
 }
 
-.App-link {
-  color: #61dafb; /* Link color */
+.main-title {
+  font-size: 4.9rem; /* Increased font size */
+  font-weight: bold; /* Boldness */
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.highlight-url {
+  color: #8b5cf6; /* Highlight color for the URL */
+  display: block;
 }
 
 .tagline {
-  margin-top: 20vh; /* Top margin for positioning */
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.highlight {
+  color: #8b5cf6; /* Highlight color for the last two words */
+  background-color: #f8f8fc;
+}
+
+.cta-button {
+  background-color: #8b5cf6;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #6b46c1;
+}
+
+.discount-banner {
+  background-color: #ffdf00;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.upload-section {
+  margin-top: 2rem;
+}
+
+.upload-button {
+  background-color: #8b5cf6;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+#file-upload {
+  display: none;
 }
