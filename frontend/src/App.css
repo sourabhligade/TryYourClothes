@@ -1,11 +1,13 @@
 /* App.css */
+
 .App {
   text-align: center;
   background-color: #f8f8fc;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  padding-top: 2rem;
 }
 
 .App-header {
@@ -13,14 +15,14 @@
 }
 
 .main-title {
-  font-size: 4.9rem; /* Increased font size */
-  font-weight: bold; /* Boldness */
+  font-size: 4.9rem;
+  font-weight: bold;
   color: #333;
   margin-bottom: 1rem;
 }
 
 .highlight-url {
-  color: #8b5cf6; /* Highlight color for the URL */
+  color: #8b5cf6;
   display: block;
 }
 
@@ -28,11 +30,6 @@
   font-size: 1.5rem;
   color: #333;
   margin-bottom: 2rem;
-}
-
-.highlight {
-  color: #8b5cf6; /* Highlight color for the last two words */
-  background-color: #f8f8fc;
 }
 
 .cta-button {
@@ -60,8 +57,69 @@
   margin-top: 10px;
 }
 
+.how-it-works {
+  margin-top: 3rem;
+}
+
+.section-header {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.how-it-works-description {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.example-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+.example-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.example-image {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 2px solid #8b5cf6; /* Added border color */
+}
+
+.bold-image {
+  border: 2px solid #8b5cf6; /* Ensure all images have the same border color */
+}
+
+.image-description {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.plug-sign,
+.arrow-sign {
+  font-size: 3rem;
+  color: #8b5cf6;
+  margin: 1rem 0;
+}
+
 .upload-section {
   margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .upload-button {
@@ -71,10 +129,11 @@
   padding: 10px 20px;
   font-size: 1rem;
   cursor: pointer;
-  margin-right: 10px;
+  margin-top: 1rem;
   border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-#file-upload {
-  display: none;
+.upload-button:hover {
+  background-color: #6b46c1;
 }

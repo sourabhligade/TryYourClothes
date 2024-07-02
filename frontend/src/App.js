@@ -1,18 +1,26 @@
+// App.js
+
 import React, { useState } from 'react';
 import './App.css';
 import axios from 'axios';
 
 function App() {
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [userPhoto, setUserPhoto] = useState(null);
+  const [clothingPhoto, setClothingPhoto] = useState(null);
 
-  const handleFileChange = (event) => {
-    setSelectedFile(event.target.files[0]);
+  const handleUserPhotoChange = (event) => {
+    setUserPhoto(event.target.files[0]);
+  };
+
+  const handleClothingPhotoChange = (event) => {
+    setClothingPhoto(event.target.files[0]);
   };
 
   const handleFileUpload = async () => {
-    if (selectedFile) {
+    if (userPhoto && clothingPhoto) {
       const formData = new FormData();
-      formData.append('file', selectedFile);
+      formData.append('user_photo', userPhoto);
+      formData.append('clothing_photo', clothingPhoto);
 
       try {
         const response = await axios.post('http://localhost:8000/api/upload/', formData, {
@@ -21,13 +29,12 @@ function App() {
           },
         });
         alert(response.data.message);
-        console.log(response.data.file_path); // You can check the file path here
       } catch (error) {
         console.error('Error uploading file:', error);
         alert('Failed to upload file');
       }
     } else {
-      alert('No file selected');
+      alert('Please select both photos.');
     }
   };
 
@@ -48,10 +55,42 @@ function App() {
         <p className="discount-banner">
           Bringing Fitting Rooms to Your Home
         </p>
+        
+        {/* How Does It Work Section */}
+        <section className="how-it-works">
+          <h2 className="section-header">How Does It Work?</h2>
+          <p className="how-it-works-description">
+            Upload your photo, select a clothing item, and see how it looks on you instantly!
+          </p>
+        </section>
+
+        {/* Example images with explanations */}
+        <div className="example-images">
+          <div className="example-image-container">
+            <img src="http://localhost:8000/media/example_images/real_girl.png" alt="Real Girl Example" className="example-image" />
+            <p className="image-description">Your Photo</p>
+          </div>
+          <div className="plug-sign">&#10148;</div>
+          <div className="example-image-container">
+            <img src="http://localhost:8000/media/example_images/avatar_clothing.png" alt="Avatar with Clothing Example" className="example-image" />
+            <p className="image-description">Clothing Photo</p>
+          </div>
+          <div className="arrow-sign">&#8594;</div>
+          <div className="example-image-container">
+            <img src="http://localhost:8000/media/example_images/result_image.png" alt="Result  Example" className="example-image bold-image" />
+            <p className="image-description">Result Image</p>
+          </div>
+        </div>
+
+        {/* File upload section */}
         <div className="upload-section">
-          <input type="file" id="file-upload" onChange={handleFileChange} />
-          <label htmlFor="file-upload" className="upload-button">Choose File</label>
-          <button className="upload-button" onClick={handleFileUpload}>Upload Photo</button>
+          <label htmlFor="user-photo-upload" className="upload-button">Choose Your Photo</label>
+          <input type="file" id="user-photo-upload" onChange={handleUserPhotoChange} style={{ display: 'none' }} />
+          <label htmlFor="user-photo-upload" className="choose-file-button">Choose File</label>
+          <label htmlFor="clothing-photo-upload" className="upload-button">Choose Clothing Photo</label>
+          <input type="file" id="clothing-photo-upload" onChange={handleClothingPhotoChange} style={{ display: 'none' }} />
+          <label htmlFor="clothing-photo-upload" className="choose-file-button">Choose File</label>
+          <button className="upload-button" onClick={handleFileUpload}>Try On</button>
         </div>
       </header>
     </div>

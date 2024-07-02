@@ -127,11 +127,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATIC_URL = '/static/'
+#STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [ '/Users/sourabhligade/buildinpublicprojects/tryyourclothes/static']
+#STATICFILES_DIRS = [ '/Users/sourabhligade/buildinpublicprojects/tryyourclothes/static']
 
-STATIC_ROOT = '/Users/sourabhligade/buildinpublicprojects/tryyourclothes/staticfiles'
+#STATIC_ROOT = '/Users/sourabhligade/buildinpublicprojects/tryyourclothes/staticfiles'
 
 
 CORS_ALLOWED_ORIGINS = [
@@ -147,5 +147,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Media files (uploads)
 MEDIA_URL = '/media/'
-#MEDIA_ROOT = '/Users/sourabhligade/buildinpublicprojects/tryyourclothes/media'
-MEDIA_ROOT = os.path.join(BASE_DIR, '/Users/sourabhligade/buildinpublicprojects/tryyourclothes/media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    '/Users/sourabhligade/buildinpublicprojects/tryyourclothes/static',
+]
+STATIC_ROOT = '/Users/sourabhligade/buildinpublicprojects/tryyourclothes/staticfiles'
