@@ -3,8 +3,9 @@
 ## Overview
 TryYourClothes.com is a web application that allows users to virtually try on clothes. Users can upload their own photos and clothing images to see how they look together.
 
-<img src="http://localhost:8000/media/example_images/readme1.png" alt="Real Girl Example" className="example-image" />
-<img src="http://localhost:8000/media/example_images/readme2.png" alt="Real Girl Example" className="example-image" />
+<img width="1440" alt="readme1" src="https://github.com/sourabhligade/TryYourClothes/assets/65074119/4ca76865-9ea8-4599-96bc-f8857b913bed">
+<img width="1440" alt="readme2" src="https://github.com/sourabhligade/TryYourClothes/assets/65074119/70ccab46-c93b-4350-a6ff-3d5b905897d3">
+
 
 
 ## Setup
