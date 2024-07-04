@@ -25,7 +25,7 @@ TryYourClothes.com is a web application that allows users to virtually try on cl
 
 2. Navigate to the project directory:
     ```sh
-    cd tryyourclothes.com
+    cd tryyourclothes
     ```
 
 3. Install backend dependencies:
